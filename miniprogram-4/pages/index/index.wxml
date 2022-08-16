@@ -1,0 +1,16 @@
+<view>
+  <view class="top_tip">点击下方按钮即可上传图片识别</view>
+  <view class="box_text" wx:if="{{!imgSrc}}">图像防篡改小程序</view>
+  <view  wx:if="{{imgSrc}}" class="code_box">
+    <image class="code_img" src="{{imgSrc}}"></image>
+    <view class="img_info">
+      <view class="img_info_title">123</view>
+      <view class="img_info_detail">{{imgSrc}}</view>
+    </view>
+  </view>
+  <view class="button" bindtap="uploadImg" wx:if="{{!haveGetImgSrc}}">上传一张图片</view>
+  <view class="button_clear" bindtap="clearImgSrc" wx:if="{{haveGetImgSrc}}">清空</view>
+  <view class="tip"> 本项目最终成果为一款微信小程序，旨在向有需要的人群提供一款便捷的工具，用以鉴别用户上传的图片是否经过篡改，以此避免谣言等损害公民利益、危害社会秩序的虚假信息的传播，并尽可能减少因人为恶意篡改图片给社会带来的负面影响。</view>
+  <cloud-tip-modal showUploadTipProps="{{showUploadTip}}"></cloud-tip-modal>
+</view>
+
