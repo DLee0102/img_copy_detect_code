@@ -95,7 +95,7 @@ def upload():
         image = image.convert('RGB')
 
         model = Classifier().to('cuda')
-        model.load_state_dict(torch.load('D:/pythonProject/flask/CNN_2022-08-24_07_19_12.pth'))
+        model.load_state_dict(torch.load('D:/pythonProject/flask/CNN_2022-08-29_12_26_46.pth'))
         model.eval()
 
         test_tfm = transforms.Compose([
@@ -108,6 +108,7 @@ def upload():
             img, label = batch
         with torch.no_grad():
             pred = model(img.to('cuda'))
+        print(pred)
         classes = pred.argmax(dim=-1).cpu().item()
 
         result = 0
